@@ -1,29 +1,17 @@
-﻿string[] inputArray1 = { "hello", "2", "world", ":-)" };
-Console.Write("Задан массив строк: ");
-PrintArray(inputArray1);
-string[] resultArray1 = SelectFromArray(inputArray1);
-Console.Write("Отсортированный массив: ");
-PrintArray(resultArray1);
-Console.WriteLine();
+﻿string[] inputArray = { "hello", "2", "world", ":-)" };
+SelectFromArray(inputArray);
 
 string[] inputArray2 = { "1234", "1567", "-2", "computer science" };
-Console.Write("Задан массив строк: ");
-PrintArray(inputArray2);
-string[] resultArray2 = SelectFromArray(inputArray2);
-Console.Write("Отсортированный массив: ");
-PrintArray(resultArray2);
-Console.WriteLine();
+SelectFromArray(inputArray2);
 
 string[] inputArray3 = { "Russia", "Denmark", "Kazan" };
-Console.Write("Задан массив строк: ");
-PrintArray(inputArray3);
-string[] resultArray3 = SelectFromArray(inputArray3);
-Console.Write("Отсортированный массив: ");
-PrintArray(resultArray3);
+SelectFromArray(inputArray3);
 
 
-string[] SelectFromArray(string[] array)
+void SelectFromArray(string[] array)
 {
+    Console.Write("Задан массив строк: ");
+    PrintArray(array);
     int[] tempArray = new int[array.Length];
     int counter = 0;
     for (int i = 0; i < array.Length; i++)
@@ -34,11 +22,13 @@ string[] SelectFromArray(string[] array)
             counter++;
         }
     }
-    
+
     if (counter == 0)
     {
         string[] selectedArray = new string[1];
-        return selectedArray;
+        Console.Write("Отсортированный массив: ");
+        PrintArray(selectedArray);
+        Console.WriteLine();
     }
     else
     {
@@ -47,7 +37,9 @@ string[] SelectFromArray(string[] array)
         {
             selectedArray[i] = array[tempArray[i]];
         }
-        return selectedArray;
+        Console.Write("Отсортированный массив: ");
+        PrintArray(selectedArray);
+        Console.WriteLine();
     }
 }
 
